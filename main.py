@@ -25,7 +25,7 @@ openai.api_key = O_SECRET
 # Email credentials
 email_address = SMTP_SECRET
 email_password = G_SECRET
-email_toaddress = "erich.gellert@microsoft.com"
+email_toaddress = "erich.gellert@microsoft.com; erichgellert@gmail.com"
 
 # RSS feed URL
 feed_url = "https://techcommunity.microsoft.com/plugins/custom/microsoft/o365/custom-blog-rss?tid=-2665027495767423092&board=MicrosoftEndpointManagerBlog&size=25"
@@ -61,7 +61,7 @@ with open("lastpost.txt", "r+") as file:
         message = MIMEText(message_body)
         message["Subject"] = latest_post.title
         message["From"] = email_address
-        message["To"] = "erichgellert@gmail.com, ergeller@microsoft.com, russ.rimmerman@microsoft.com"
+        message["To"] = email_toaddress
         
 
         # Send email
