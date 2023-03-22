@@ -24,6 +24,7 @@ jobs:
 
       - name: execute py script # run main.py
         env:
+          SMTP_SECRET: ${{ secrets.smtpuser}}
           G_SECRET: ${{ secrets.GMAIL}}
           OPENAI_SECRET: ${{ secrets.OPENAI}}
         run: python main.py
