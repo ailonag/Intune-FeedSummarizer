@@ -6,7 +6,10 @@ import smtplib
 from email.mime.text import MIMEText
 from bs4 import BeautifulSoup
 
-
+try:
+    SMTP_SECRET = os.environ["SMTP_SECRET"]
+except KeyError:
+    SMTP_SECRET = "Token not available!"
 try:
     G_SECRET = os.environ["G_SECRET"]
 except KeyError:
@@ -20,7 +23,7 @@ except KeyError:
 openai.api_key = O_SECRET
 
 # Email credentials
-email_address = "erichgellert@gmail.com"
+email_address = SMTP_SECRET
 email_password = G_SECRET
 email_toaddress = "erich.gellert@microsoft.com"
 
